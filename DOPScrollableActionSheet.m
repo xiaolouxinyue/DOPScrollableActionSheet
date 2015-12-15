@@ -10,26 +10,17 @@
 
 #define HexColor(hexValue) [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16)) / 255.0 green:((float)((hexValue & 0xFF00) >> 8)) / 255.0 blue:((float)(hexValue & 0xFF)) / 255.0 alpha:1.0]
 
-/*
-#define horizontalMargin        20.0
-#define verticalMargin          20.0
-#define headerHeightMargin      28.0
-
-#define iconWidthMargin         80.0
-#define iconHeightMargin        60.0
-#define titleWidthMargin        80.0
-#define titleHeightMargin       20.0
-#define itemHeightMargin        (iconHeightMargin + titleHeightMargin)
-#define itemWidthMargin         MAX(iconWidthMargin, titleWidthMargin)
-#define buttonHeightMargin      54.0
-*/
 #define maxRowCount             2.0
 
 @interface DOPScrollableActionSheet ()<UIScrollViewDelegate>
 {
-    NSInteger      columnCount;
-    NSInteger      pageCount;
-    CGFloat horizontalMargin, verticalMargin, headerHeightMargin, iconHeightMargin, iconWidthMargin, titleHeightMargin, titleWidthMargin, itemWidthMargin, itemHeightMargin, buttonHeightMargin;
+    NSInteger       columnCount;
+    NSInteger       pageCount;
+    CGFloat         horizontalMargin, verticalMargin, headerHeightMargin,
+                    iconHeightMargin, iconWidthMargin,
+                    titleHeightMargin, titleWidthMargin,
+                    itemWidthMargin, itemHeightMargin,
+                    buttonHeightMargin;
 }
 
 @property (nonatomic, assign) CGRect         screenRect;
@@ -160,7 +151,7 @@
         if (pageCount > 1) {
             height += verticalMargin;
         }
-        
+        height += verticalMargin / 2;//for sep
         height += buttonHeightMargin;
         /*calculation end*/
         self.frame = CGRectMake(0, _screenRect.size.height, _screenRect.size.width, height);
@@ -248,6 +239,8 @@
             [self addSubview:self.pageControl];
             y+= verticalMargin;
         }
+        
+        y+= verticalMargin / 2;
         UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(0, y, _screenRect.size.width,0.6)];
         separator.backgroundColor = HexColor(0xc1c1c1);
         [self addSubview:separator];
