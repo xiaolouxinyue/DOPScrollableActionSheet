@@ -11,22 +11,11 @@
 
 @class DOPAction;
 
-//DOPAction                 model
-//DOPScrollableActionSheet  view and partial controller for showing and programmatical dismissing
-
-//multi scrollable row actionsheet
-//only for iPhone
 @interface DOPScrollableActionSheet : UIView
-/*
-    actions = @[@"row title one",                   //with title
-                @[action1, action2, action3, ...],
-                @"row title two",                   //with title
-                @[action4, action5],
-                @"",                                //without title
-                @[action6, action7],
-                ...];
-*/
-- (instancetype)initWithActionArray:(NSArray *)actions;
+
+
+- (instancetype)initWithTitle:(NSString *)title
+                      actions:(NSArray *)actions;
 
 //always show in a new window
 - (void)show;

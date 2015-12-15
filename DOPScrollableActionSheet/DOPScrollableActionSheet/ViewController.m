@@ -76,32 +76,11 @@
     
     NSArray *actions;
     
-    switch (indexPath.row) {
-        case 0:{
-            actions = @[@"", @[action1, action2, action3, action4, action5]];
-        } break;
-        case 1:{
-            actions = @[@"Share", @[action1, action2, action3, action4, action5]];
-        } break;
-        case 2:{
-            actions = @[@"Share",
-                        @[action1, action2, action3, action4, action5],
-                        @"",
-                        @[action6, action7, action8, action9, action10, action11]];
-        } break;
-        case 3:{
-            actions = @[@"Share",
-                        @[action1, action2, action3, action4, action5],
-                        @"Share More",
-                        @[action6, action7, action8, action9, action10, action11],
-                        @"",
-                        @[action12, action13, action14, action15]];
-        } break;
-        default:
-            break;
-    }
+
     
-    DOPScrollableActionSheet *as = [[DOPScrollableActionSheet alloc] initWithActionArray:actions];
+    actions = @[action1, action2, action3, action4, action5, action6, action7, action8, action9, action10, action11, action12, action13, action14,action15];
+    
+    DOPScrollableActionSheet *as = [[DOPScrollableActionSheet alloc] initWithTitle:@"share" actions:actions];
     [as show];
 }
 
